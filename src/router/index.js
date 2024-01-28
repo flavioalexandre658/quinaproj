@@ -150,45 +150,6 @@ const routes = [
       },
     ],
   },
-  {
-    path: "/admin",
-    name: "CRM Dashboard",
-    redirect: "/admin/crm",
-    component: () => import("@/Layout/Admin/index.vue"),
-    beforeEnter: Guard.auth,
-    children: [
-      {
-        path: "crm",
-        name: "crm",
-        component: () => import("@/views/admin/home/admin.vue"),
-      },
-      {
-        path: "users",
-        name: "users",
-        component: () => import("@/views/admin/users/users.vue"),
-      },
-      {
-        path: "campaigns/:userId",
-        name: "campaigns",
-        component: () => import("@/views/admin/campaigns/campaigns.vue"),
-      },
-      {
-        path: "orders/:campaignId",
-        name: "orders",
-        component: () => import("@/views/admin/collaborators/collaborators.vue"),
-      },
-      {
-        path: "payments",
-        name: "payments",
-        component: () => import("@/views/admin/users/users.vue"),
-      },
-      {
-        path: "fees",
-        name: "fees",
-        component: () => import("@/views/admin/users/users.vue"),
-      },
-    ],
-  },
 ];
 
 const router = createRouter({
