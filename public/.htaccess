@@ -1,0 +1,16 @@
+# Ativar o módulo de reescrita
+RewriteEngine On
+
+# Forçar HTTPS apenas para o domínio 123rifas.com
+RewriteCond %{HTTP_HOST} ^123rifas\.com [NC]
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
